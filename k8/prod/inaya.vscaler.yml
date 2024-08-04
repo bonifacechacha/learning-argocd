@@ -1,0 +1,20 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: inaya
+spec:
+  targetRef:
+    kind: Deployment
+    name: inaya
+    apiVersion: apps/v1
+  updatePolicy:
+    updateMode: Auto
+  resourcePolicy:
+    containerPolicies:
+      - containerName: inaya
+        mode: Auto
+        controlledResources:
+          - cpu
+          - memory
+        minAllowed: {}
+        maxAllowed: {}

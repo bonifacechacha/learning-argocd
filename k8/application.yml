@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL:  https://github.com/bonifacechacha/learning-argocd.git
+    targetRevision: HEAD
+    path: k8/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
