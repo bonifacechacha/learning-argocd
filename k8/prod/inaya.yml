@@ -37,15 +37,6 @@ spec:
         - name: inaya
           image: niafikra/inaya:2024_01_RC9
           imagePullPolicy: Always
-          resources:
-            requests:
-              cpu: 250m
-              memory: 1024Mi
-              ephemeral-storage: 1Gi
-            limits:
-              cpu: 250m
-              memory: 4096Mi
-              ephemeral-storage: 1Gi
           ports:
             - containerPort: 8080
           env:
@@ -68,13 +59,3 @@ spec:
               value: "Africa/Dar_es_Salaam"
             - name: CATALINA_OPTS
               value: "-Xmx4000m -Xms1000m"
-          volumeMounts:
-            - mountPath: /root/.inaya
-              name: data
-              readOnly: false
-      imagePullSecrets:
-        - name: docker-registry-credential
-      volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: inaya-ssd-pvc
