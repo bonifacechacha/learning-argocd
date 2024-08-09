@@ -17,9 +17,9 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inaya
+  name: test-inaya
   labels:
-    app: inaya
+    app: test-inaya
 spec:
   replicas: 1
   # to prevent deadlock on claiming disks remove the old pod and create a new one
@@ -27,14 +27,14 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: inaya
+      app: test-inaya
   template:
     metadata:
       labels:
-        app: inaya
+        app: test-inaya
     spec:
       containers:
-        - name: inaya
+        - name:  inaya
           image: niafikra/inaya:2024_01_RC9
           imagePullPolicy: Always
           ports:
