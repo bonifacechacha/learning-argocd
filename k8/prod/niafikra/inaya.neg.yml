@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: niafikra-inaya
+spec:
+  type: ClusterIP
+  selector:
+    app: niafikra-inaya
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
