@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: inaya-configmap
+  namespace: niafikra
 data:
   db-url: 'jdbc:mysql://10.82.128.3:3306/niafikra'
 ---
@@ -9,6 +10,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: inaya-secret
+  namespace: niafikra
 type: Opaque
 data:
   db-username: aW5heWE=
@@ -17,6 +19,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: niafikra
   name: niafikra-inaya
   labels:
     app: niafikra-inaya
