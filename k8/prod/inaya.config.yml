@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inaya-configmap
+data:
+  db-url: 'jdbc:mysql://10.82.128.3:3306/test'
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: inaya-secret
+type: Opaque
+data:
+  db-username: aW5heWE=
+  db-password: TjFhZjFrcmE=
