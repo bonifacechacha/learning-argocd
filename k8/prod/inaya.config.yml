@@ -11,5 +11,5 @@ metadata:
   name: inaya-secret
 type: Opaque
 data:
-  db-username: cm9vdAo=
-  db-password: bWFkcmlkCg==
+  db-username: aW5heWEK
+  db-password: aW5heWEK
