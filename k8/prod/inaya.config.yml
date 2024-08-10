@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: inaya-configmap
 data:
-  db-url: 'jdbc:mysql://mysql.default.svc.cluster.local:3306/test'
+  db-url: 'jdbc:mysql://192.168.1.51:3306/test'
 ---
 apiVersion: v1
 kind: Secret
