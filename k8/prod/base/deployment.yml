@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inaya
+spec:
+  replicas: 1
+  # to prevent deadlock on claiming disks remove the old pod and create a new one
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      containers:
+        - name:  inaya
+          image: niafikra/inaya:2024_01_RC9
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: inaya-config
+            - secretRef:
+                name: inaya-secret
