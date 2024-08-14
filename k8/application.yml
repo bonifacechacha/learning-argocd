@@ -8,7 +8,7 @@ spec:
   source:
     repoURL:  https://github.com/bonifacechacha/learning-argocd.git
     targetRevision: HEAD
-    path: k8/prod
+    path: k8/prod/overlays/niafikra
     directory:
       recurse: true
   destination:
