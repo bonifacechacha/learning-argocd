@@ -2,9 +2,9 @@ resources:
   - ../../base
 
 commonLabels:
-  app: test-inaya
+  app: pazia-inaya
 
-namePrefix: test-
+namePrefix: pazia-
 
 configMapGenerator:
   - name: inaya-config
