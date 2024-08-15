@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: inaya
+  namespace: test
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: niafikra.inaya.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: niafikra-inaya
+                port:
+                  number: 80
+            pathType: Prefix
+            path: /

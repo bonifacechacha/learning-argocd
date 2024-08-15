@@ -9,7 +9,12 @@ spec:
         repoURL: https://github.com/bonifacechacha/learning-argocd.git
         revision: master
         directories:
-          - path: k8/prod/overlays/*
+          - path: k8/prod/instances/overlays/*
+    - git:
+        repoURL: https://github.com/bonifacechacha/learning-argocd.git
+        revision: master
+        directories:
+          - path: k8/prod/shared/*
   template:
     metadata:
       name: '{{path.basename}}-inaya-app'
