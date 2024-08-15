@@ -1,23 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: inaya-legacy
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL:  https://github.com/bonifacechacha/learning-argocd.git
-    targetRevision: HEAD
-    path: k8/prod/overlays/niafikra
-    directory:
-      recurse: true
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: test
-
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+  generators:
+    - git:
+        repoURL: https://github.com/bonifacechacha/learning-argocd.git
+        revision: master
+        directories:
+          - path: k8/prod/overlays/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/bonifacechacha/learning-argocd.git
+        targetRevision: master
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: test
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
