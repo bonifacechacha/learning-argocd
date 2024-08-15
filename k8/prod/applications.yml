@@ -17,7 +17,7 @@ spec:
           - path: k8/prod/shared/*
   template:
     metadata:
-      name: '{{path.basename}}-inaya-app'
+      name: '{{path.basename}}'
     spec:
       project: default
       source:
