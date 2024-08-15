@@ -17,3 +17,13 @@ spec:
                   number: 80
             pathType: Prefix
             path: /
+    - host: test.inaya.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: test-inaya
+                port:
+                  number: 80
+            pathType: Prefix
+            path: /
