@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: inaya
 spec:
-  replicas: 1
+  replicas: 3
   # to prevent deadlock on claiming disks remove the old pod and create a new one
   strategy:
     type: Recreate
