@@ -1,0 +1,17 @@
+resources:
+  - ../../base
+
+commonLabels:
+  app: test-inaya
+
+namePrefix: test-
+
+configMapGenerator:
+  - name: inaya-config
+    envs:
+      - config.properties
+
+secretGenerator:
+  - name: inaya-secret
+    envs:
+      - secret.properties

@@ -12,7 +12,7 @@ spec:
           - path: k8/prod/overlays/*
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path.basename}}-inaya-app'
     spec:
       project: default
       source:
