@@ -1,2 +1,6 @@
 resources:
   - ingress.yml
+
+patches:
+  - path: niafikra-host.yml
+  - path: test-host.yml

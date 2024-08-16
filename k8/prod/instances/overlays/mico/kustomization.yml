@@ -1,0 +1,17 @@
+resources:
+  - ../../base
+
+commonLabels:
+  app: mico-inaya
+
+namePrefix: mico-
+
+configMapGenerator:
+  - name: inaya-config
+    envs:
+      - config.properties
+
+secretGenerator:
+  - name: inaya-secret
+    envs:
+      - secret.properties
