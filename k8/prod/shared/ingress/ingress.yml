@@ -7,6 +7,16 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
+    - host: test.inaya.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: test-inaya
+                port:
+                  number: 80
+            pathType: Prefix
+            path: /
     - host: niafikra.inaya.io
       http:
         paths:
