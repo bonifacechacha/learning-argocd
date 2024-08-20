@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: inaya
   namespace: test
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
     - host: test.inaya.io
