@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: inaya
   namespace: test
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - host: test.inaya.io
